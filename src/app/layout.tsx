@@ -1,27 +1,29 @@
 "use client";
-import HeaderC from "@/components/Header/HeaderC";
+import Header from "@/components/Header/Header";
 import "./globals.css";
 import styles from "./layout.module.scss";
-import { Layout } from "antd";
-import FooterC from "@/components/Footer/FooterC";
+import Footer from "@/components/Footer/Footer";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { Header, Content, Footer } = Layout;
+  const queryClient = new QueryClient();
   return (
-    <html lang="en">
-      <body className={styles.body}>
-        <Header>
-          <HeaderC />
-        </Header>
-        <Content>{children}</Content>
-        <Footer>
-          <FooterC />
-        </Footer>
-      </body>
-    </html>
+      <QueryClientProvider client={queryClient}>
+        <html lang="en">
+          <body className={styles.body}>
+            <header>
+              <Header />
+            </header>
+            <main>{children}</main>
+            <footer>
+              <Footer />
+            </footer>
+          </body>
+        </html>
+      </QueryClientProvider>
   );
 }

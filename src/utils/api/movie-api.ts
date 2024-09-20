@@ -1,5 +1,5 @@
 import { BASE_URL } from "../const";
-import "./envConfig.ts";
+import "../envConfig.ts";
 
 export const getMovies = async () => {
   console.log(process.env.TOKEN);

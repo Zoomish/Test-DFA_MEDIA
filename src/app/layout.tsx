@@ -4,7 +4,7 @@ import "./globals.scss";
 import styles from "./layout.module.scss";
 import Footer from "@/components/Footer/Footer";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function RootLayout({
   children,
@@ -13,7 +13,8 @@ export default function RootLayout({
 }>) {
   const queryClient = new QueryClient();
   const router = useRouter();
-  if (location.pathname === "/") {
+  const location = usePathname();
+  if (location === "/") {
     router.push("/movie");
   }
   return (

@@ -3,7 +3,6 @@ import { useQuery } from "@tanstack/react-query";
 import * as movieAPI from "@/utils/api/movie-api";
 
 export default function Home() {
-  console.log(process.env.TOKEN);
 
   const { isPending, error, data } = useQuery({
     queryKey: ["repoData"],

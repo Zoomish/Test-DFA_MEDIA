@@ -1,4 +1,5 @@
 "use client"
+import "./globals.css";
 import { Layout } from "antd";
 
 export default function RootLayout({

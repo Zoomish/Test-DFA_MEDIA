@@ -1,7 +1,7 @@
 export default function FooterC() {
   return (
-    <header>
-      <h1>Header</h1>
-    </header>
+    <footer>
+      Copyright &copy; {new Date().getFullYear()} Zoomish. All rights reserved.
+    </footer>
   );
 }

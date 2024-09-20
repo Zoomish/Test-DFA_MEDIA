@@ -1,6 +1,6 @@
 "use client";
 import Header from "@/components/Header/Header";
-import "./globals.css";
+import "./globals.scss";
 import styles from "./layout.module.scss";
 import Footer from "@/components/Footer/Footer";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";

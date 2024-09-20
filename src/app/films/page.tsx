@@ -1,5 +1,6 @@
+"use client"
 import { useRouter } from "next/router";
-export default function Home() {
+function Home() {
   const router = useRouter();
   return (
     <div>
@@ -7,3 +8,4 @@ export default function Home() {
     </div>
   );
 }
+export default Home;

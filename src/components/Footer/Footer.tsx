@@ -1,8 +1,8 @@
 import styles from "./footer.module.scss";
-export default function FooterC() {
+export default function Footer() {
   return (
-    <footer className={styles.footer}>
+    <div className={styles.footer}>
       Copyright &copy; {new Date().getFullYear()} Zoomish. All rights reserved.
-    </footer>
+    </div>
   );
 }

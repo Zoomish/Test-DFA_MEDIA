@@ -1,4 +1,5 @@
-"use client"
+"use client";
+import HeaderC from "@/components/Header/Header";
 import "./globals.css";
 import styles from "./layout.module.scss";
 import { Layout } from "antd";
@@ -12,7 +13,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={styles.body}>
-        <Header>Header</Header>
+        <Header>
+          <HeaderC />
+        </Header>
         <Content>{children}</Content>
         <Footer>Footer</Footer>
       </body>

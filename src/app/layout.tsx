@@ -1,8 +1,9 @@
 "use client";
-import HeaderC from "@/components/Header/Header";
+import HeaderC from "@/components/Header/HeaderC";
 import "./globals.css";
 import styles from "./layout.module.scss";
 import { Layout } from "antd";
+import FooterC from "@/components/Footer/FooterC";
 
 export default function RootLayout({
   children,
@@ -17,7 +18,9 @@ export default function RootLayout({
           <HeaderC />
         </Header>
         <Content>{children}</Content>
-        <Footer>Footer</Footer>
+        <Footer>
+          <FooterC />
+        </Footer>
       </body>
     </html>
   );

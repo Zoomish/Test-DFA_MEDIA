@@ -6,7 +6,7 @@ export default function Home() {
 
   return (
     <div>
-      <p>Post: {id}</p>
+      <p>Film: {id}</p>
     </div>
   );
 }

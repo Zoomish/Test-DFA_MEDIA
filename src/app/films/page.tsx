@@ -1,8 +1,3 @@
-function Home() {
-  return (
-    <div>
-        aads
-    </div>
-  );
+export default function Home() {
+  return <div>All films</div>;
 }
-export default Home;

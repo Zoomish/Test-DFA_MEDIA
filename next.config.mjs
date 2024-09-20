@@ -6,7 +6,6 @@ const nextConfig = {
         // Looks like backward compatibility approach.
         webpack5: true,
     },
-
     webpack(config) {
         config.resolve.fallback = {
 

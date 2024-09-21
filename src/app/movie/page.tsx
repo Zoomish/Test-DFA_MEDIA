@@ -9,7 +9,11 @@ import { TMovieShort } from "@/utils/typesFromBackend";
 export default function Home() {
   const { isPending, error, data } = useQuery({
     queryKey: ["movies"],
-    queryFn: () => movieAPI.getMovies().then((res) => res.results),
+    queryFn: () =>
+      movieAPI
+        .getMovies()
+        .then((res) => res.results)
+        .then((res: TMovieShort[]) => res),
   });
   if (isPending) return "Loading...";
   console.log(data);

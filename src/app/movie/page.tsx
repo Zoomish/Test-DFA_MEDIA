@@ -7,8 +7,9 @@ import { BASE_URL_IMG } from "@/utils/const";
 import { TMovieShort } from "@/utils/typesFromBackend";
 import { setMoviesState } from "@/redux/movieSlice/movieSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import MovieCardList from "@/components/MovieCardList/MovieCardList";
 
-export default function Home() {
+export default function Movies() {
   const dispatch = useAppDispatch();
   const { isPending, error } = useQuery({
     queryKey: ["movies"],
@@ -53,6 +54,7 @@ export default function Home() {
           </div>
         ))}
       </Carousel>
+      <MovieCardList/>
     </div>
   );
 }

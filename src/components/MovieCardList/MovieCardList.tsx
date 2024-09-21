@@ -1,6 +1,6 @@
 "use client";
 import styles from "./movieCardList.module.scss";
 
-export default function Home() {
+export default function MovieCardList() {
   return <div className={styles.container}></div>;
 }

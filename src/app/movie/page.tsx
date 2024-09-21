@@ -8,16 +8,22 @@ import { TMovieShort } from "@/utils/typesFromBackend";
 import { setMoviesState } from "@/redux/movieSlice/movieSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import MovieCardList from "@/components/MovieCardList/MovieCardList";
+import { getFromCache } from "@/utils/helper";
 
 export default function Movies() {
   const dispatch = useAppDispatch();
   const { isPending, error } = useQuery({
     queryKey: ["movies"],
-    queryFn: () =>
+    queryFn: () => {
+      const cache = getFromCache(`movies`);
+      if (cache) {
+        return cache;
+      }
       movieAPI
         .getMovies()
         .then((res) => res.results)
-        .then((res: TMovieShort[]) => dispatch(setMoviesState(res))),
+        .then((res: TMovieShort[]) => dispatch(setMoviesState(res)));
+    },
   });
   const movies = useAppSelector((state) => state.movies.movies);
   if (isPending) return "Loading...";
@@ -54,7 +60,7 @@ export default function Movies() {
           </div>
         ))}
       </Carousel>
-      <MovieCardList/>
+      <MovieCardList />
     </div>
   );
 }

@@ -14,7 +14,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchIntervalInBackground: false,
+        staleTime: 20_000,
+        refetchOnWindowFocus: false,
+      },
+    },
+  });
   const router = useRouter();
   const location = usePathname();
   if (location === "/") {

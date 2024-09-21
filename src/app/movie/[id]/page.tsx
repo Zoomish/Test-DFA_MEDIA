@@ -17,13 +17,12 @@ export default function Home() {
     queryFn: () => movieAPI.getMovie(+id).then((res) => res),
   });
   if (isPending) return "Loading...";
-  console.log(data);
+  dispatch(setMovieState(data))
 
   if (error) return "An error has occurred: " + error.message;
   return (
     <div>
       <p>Film: {JSON.stringify(data)}</p>
-      <button onClick={() => dispatch(setMovieState(data))}>Click</button>
     </div>
   );
 }

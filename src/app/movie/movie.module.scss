@@ -23,20 +23,47 @@
   display: flex !important;
   justify-content: center;
 }
-.carouselel{
-    position: relative;
+.carouselel {
+  position: relative;
+  overflow: hidden;
 }
 
-.imgBackground{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    filter: blur(5px);
-    z-index: -1;
+.imgBackground {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  filter: blur(5px);
+  z-index: -1;
 }
 
 .img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.text_title {
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  position: absolute;
+  top: 40%;
+  left: 3%;
+}
+.text_date {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 3%;
+}
+.text_overview {
+  width: 40%;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  position: absolute;
+  top: 65%;
+  left: 3%;
 }

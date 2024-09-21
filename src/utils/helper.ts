@@ -1,6 +1,5 @@
-import { useQueryClient } from "@tanstack/react-query";
+import { QueryClient } from "@tanstack/react-query";
 
-export const getFromCache = (key: string) => {
-  const queryClient = useQueryClient();
+export const getFromCache = (key: string, queryClient: QueryClient) => {
   return queryClient.getQueryData([key]);
 };

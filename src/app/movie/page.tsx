@@ -1,5 +1,5 @@
 "use client";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import * as movieAPI from "@/utils/api/movie-api";
 import styles from "./movie.module.scss";
 import { Carousel } from "antd";
@@ -11,11 +11,12 @@ import MovieCardList from "@/components/MovieCardList/MovieCardList";
 import { getFromCache } from "@/utils/helper";
 
 export default function Movies() {
+  const queryClient = useQueryClient();
   const dispatch = useAppDispatch();
   const { isPending, error } = useQuery({
     queryKey: ["movies"],
     queryFn: () => {
-      const cache = getFromCache(`movies`);
+      const cache = getFromCache(`movies`, queryClient);
       if (cache) {
         return cache;
       }

@@ -41,32 +41,34 @@
   height: 100%;
   object-fit: contain;
 }
+.text {
+  position: absolute;
+  top: 50%;
+  left: 3%;
+  width: 94%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
 
 .text_title {
+  height: auto !important;
   color: white;
   font-size: 24px;
-  position: absolute;
-  top: 45%;
-  left: 3%;
   text-shadow: 1px 1px 2px black;
 }
 .text_date {
-  color: white;
-  font-size: 20px;
-  position: absolute;
-  top: 55%;
-  text-shadow: 1px 1px 2px black;
-  left: 3%;
-}
-.text_overview {
-  width: 40%;
   height: auto !important;
   color: white;
-  font-size: 14px;
-  position: absolute;
-  top: 65%;
+  font-size: 20px;
   text-shadow: 1px 1px 2px black;
-  left: 3%;
+}
+.text_overview {
+  height: auto !important;
+  width: 40%;
+  color: white;
+  font-size: 14px;
+  text-shadow: 1px 1px 2px black;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -moz-box;

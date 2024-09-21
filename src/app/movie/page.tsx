@@ -52,12 +52,14 @@ export default function Movies() {
               className={styles.img}
               alt={movie.title}
             />
-            <p className={styles.text_title}>{movie.title}</p>
-            <p className={styles.text_date}>
-              {movie.release_date} &nbsp;&nbsp;&nbsp;&nbsp;
-              {Math.floor(movie.vote_average * 10) / 10}★
-            </p>
-            <p className={styles.text_overview}>{movie.overview}</p>
+            <div className={styles.text}>
+              <p className={styles.text_title}>{movie.title}</p>
+              <p className={styles.text_date}>
+                {movie.release_date} &nbsp;&nbsp;&nbsp;&nbsp;
+                {Math.floor(movie.vote_average * 10) / 10}★
+              </p>
+              <p className={styles.text_overview}>{movie.overview}</p>
+            </div>
           </div>
         ))}
       </Carousel>

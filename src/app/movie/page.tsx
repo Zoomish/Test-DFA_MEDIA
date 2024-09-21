@@ -6,20 +6,20 @@ import { Carousel } from "antd";
 import { BASE_URL_IMG } from "@/utils/const";
 import { TMovieShort } from "@/utils/typesFromBackend";
 import { setMoviesState } from "@/redux/movieSlice/movieSlice";
-import { useAppDispatch } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 
 export default function Home() {
   const dispatch = useAppDispatch();
-  const { isPending, error, data } = useQuery({
+  const { isPending, error } = useQuery({
     queryKey: ["movies"],
     queryFn: () =>
       movieAPI
         .getMovies()
         .then((res) => res.results)
-        .then((res: TMovieShort[]) => res),
+        .then((res: TMovieShort[]) => dispatch(setMoviesState(res))),
   });
+  const movies = useAppSelector((state) => state.movies.movies);
   if (isPending) return "Loading...";
-  dispatch(setMoviesState(data ? data : []));
 
   if (error) return "An error has occurred: " + error.message;
   return (
@@ -32,7 +32,7 @@ export default function Home() {
         autoplaySpeed={6000}
         className={styles.carousel}
       >
-        {data.map((movie: TMovieShort) => (
+        {movies.map((movie: TMovieShort) => (
           <div className={styles.carouselel} key={movie.id}>
             <img
               src={BASE_URL_IMG + movie.backdrop_path}

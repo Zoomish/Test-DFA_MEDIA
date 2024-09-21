@@ -4,7 +4,7 @@ import MovieCard from "../MovieCard/MovieCard";
 import { TMovieShort } from "@/utils/typesFromBackend";
 import styles from "./movieCardList.module.scss";
 
-export default function MovieCardList() {
+export default function MovieCardList({}) {
   const movies = useAppSelector((state) => state.movies.movies);
   return (
     <div className={styles.container}>

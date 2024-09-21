@@ -4,7 +4,6 @@ import { useQuery } from "@tanstack/react-query";
 import { usePathname } from "next/navigation";
 import * as movieAPI from "@/utils/api/movie-api";
 import { setMovieState } from "@/redux/movieSlice/movieSlice";
-import { useEffect } from "react";
 
 export default function Home() {
   const router = usePathname().split("/");
@@ -21,9 +20,6 @@ export default function Home() {
   });
   if (isPending) return "Loading...";
 
-  useEffect(() => {
-    dispatch(setMovieState(data));
-  }, []);
   if (error) return "An error has occurred: " + error.message;
   return (
     <div>

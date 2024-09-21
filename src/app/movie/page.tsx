@@ -5,7 +5,7 @@ import * as movieAPI from "@/utils/api/movie-api";
 export default function Home() {
   const { isPending, error, data } = useQuery({
     queryKey: ["movies"],
-    queryFn: () => movieAPI.getMovies().then((res) => res.json()),
+    queryFn: () => movieAPI.getMovies().then((res) => res),
   });
   if (isPending) return "Loading...";
   console.log(data);

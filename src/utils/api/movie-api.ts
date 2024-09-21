@@ -10,7 +10,7 @@ export const getMovies = async () => {
 };
 
 export const getMovie = async (id: number) => {
-  return await fetch(`${BASE_URL}movie/${id}?language=ru-RU`, {
+  return await fetch(`${BASE_URL}/movie/${id}?language=ru-RU`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

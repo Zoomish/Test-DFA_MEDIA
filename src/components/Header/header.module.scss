@@ -1,15 +1,11 @@
 .header {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
   margin: 0;
   padding: 5px 5px;
   display: flex;
   justify-content: space-between;
-  background: rgb(49, 142, 184);
-  background: linear-gradient(
-    214deg,
-    rgba(49, 142, 184, 1) 0%,
-    rgba(239, 148, 255, 1) 38%,
-    rgba(174, 0, 255, 1) 94%
-  );
 }
 
 .a {

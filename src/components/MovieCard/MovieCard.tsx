@@ -13,7 +13,7 @@ export default function MovieCard({ movie }: { movie: TMovieShort }) {
   return (
     <Popover placement="rightTop" content={content} title={movie.title}>
       <div key={movie.id} className={styles.movieCard}>
-        <img src={BASE_URL_IMG + movie.poster_path} alt={movie.title} />
+        <img src={BASE_URL_IMG + movie.poster_path} alt={movie.title} className={styles.img}/>
         <div className={styles.textContainer}>
           <h5>{movie.title}</h5>
         </div>

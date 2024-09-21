@@ -36,3 +36,8 @@ a:hover {
     height: 100% !important;
   }
 }
+:where(.css-dev-only-do-not-override-qnu6hi).ant-popover {
+  * {
+    width: min-content !important;
+  }
+}

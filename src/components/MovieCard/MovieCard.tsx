@@ -6,12 +6,13 @@ import { Popover } from "antd";
 
 export default function MovieCard({ movie }: { movie: TMovieShort }) {
   const content = (
-    <div>
-      <p>{movie.overview}</p>
+    <div className={styles.content}>
+      <p><b>Дата выхода:</b> {movie.release_date}</p>
+      <p><b>Описание:</b> {movie.overview}</p>
     </div>
   );
   return (
-    <Popover placement="rightTop" content={content} title={movie.title}>
+    <Popover placement="rightTop" content={content} title={movie.title} trigger="click">
       <div key={movie.id} className={styles.movieCard}>
         <img src={BASE_URL_IMG + movie.poster_path} alt={movie.title} className={styles.img}/>
         <div className={styles.rating}>{Math.floor(movie.vote_average * 10) / 10}</div>

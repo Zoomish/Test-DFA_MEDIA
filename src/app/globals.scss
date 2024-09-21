@@ -37,7 +37,5 @@ a:hover {
   }
 }
 :where(.css-dev-only-do-not-override-qnu6hi).ant-popover {
-  * {
-    width: min-content !important;
-  }
+  max-width: 40% !important;
 }

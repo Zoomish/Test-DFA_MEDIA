@@ -15,7 +15,7 @@
   }
 }
 
-.rating{
+.rating {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -26,7 +26,13 @@
   width: 25px;
   height: 25px;
   border-radius: 25%;
-  background-color: rgb(231, 231, 231);
+  color: #ffffff;
+  background: rgb(8, 255, 57);
+  background: linear-gradient(
+    131deg,
+    rgba(8, 255, 57, 1) 0%,
+    rgba(255, 113, 113, 1) 67%
+  );
 }
 
 .textContainer {
@@ -51,7 +57,7 @@
   height: 90%;
 }
 
-.content{
+.content {
   max-width: 40%;
   flex-grow: 1;
   display: flex;

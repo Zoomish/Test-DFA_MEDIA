@@ -32,7 +32,7 @@ export default function RootLayout({
             <header>
               <Header />
             </header>
-            <main className={styles.main}>{children}</main>
+            <main>{children}</main>
             <footer>
               <Footer />
             </footer>

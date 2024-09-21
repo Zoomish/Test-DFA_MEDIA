@@ -5,8 +5,11 @@ import styles from "./movie.module.scss";
 import { Carousel } from "antd";
 import { BASE_URL_IMG } from "@/utils/const";
 import { TMovieShort } from "@/utils/typesFromBackend";
+import { setMoviesState } from "@/redux/movieSlice/movieSlice";
+import { useAppDispatch } from "@/redux/hooks";
 
 export default function Home() {
+  const dispatch = useAppDispatch();
   const { isPending, error, data } = useQuery({
     queryKey: ["movies"],
     queryFn: () =>
@@ -16,7 +19,7 @@ export default function Home() {
         .then((res: TMovieShort[]) => res),
   });
   if (isPending) return "Loading...";
-  console.log(data);
+  dispatch(setMoviesState(data ? data : []));
 
   if (error) return "An error has occurred: " + error.message;
   return (

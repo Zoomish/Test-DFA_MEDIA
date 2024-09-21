@@ -1,12 +1,13 @@
+import { TMovieShort } from "@/utils/typesFromBackend";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 export interface IMovieState {
-  movie: object;
-  movies: object[];
+  movie: TMovieShort | null;
+  movies: TMovieShort[];
 }
 
 const initialState: IMovieState = {
-  movie: {},
+  movie: null,
   movies: [],
 };
 
@@ -14,10 +15,10 @@ export const movieSlice = createSlice({
   name: "movie",
   initialState,
   reducers: {
-    setMovieState: (state, action: PayloadAction<object>) => {
+    setMovieState: (state, action: PayloadAction<TMovieShort>) => {
       state.movie = action.payload;
     },
-    setMoviesState: (state, action: PayloadAction<Array<object>>) => {
+    setMoviesState: (state, action: PayloadAction<Array<TMovieShort>>) => {
       state.movies = action.payload;
     },
   },

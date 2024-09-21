@@ -1,4 +1,3 @@
-"use client";
 import { useAppSelector } from "@/redux/hooks";
 import MovieCard from "../MovieCard/MovieCard";
 import { TMovieShort } from "@/utils/typesFromBackend";

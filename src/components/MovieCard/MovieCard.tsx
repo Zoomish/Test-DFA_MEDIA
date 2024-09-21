@@ -1,4 +1,3 @@
-"use client";
 import { TMovieShort } from "@/utils/typesFromBackend";
 import styles from "./movieCard.module.scss";
 import { BASE_URL_IMG } from "@/utils/const";

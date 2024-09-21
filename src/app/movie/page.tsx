@@ -20,7 +20,7 @@ export default function Movies() {
       if (cache) {
         return cache;
       }
-      movieAPI
+      return movieAPI
         .getMovies()
         .then((res) => res.results)
         .then((res: TMovieShort[]) => dispatch(setMoviesState(res)));

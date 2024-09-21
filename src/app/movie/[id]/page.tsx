@@ -16,7 +16,7 @@ export default function Movie() {
     queryFn: () => {
       const cache = getFromCache(`movie/${id}`, queryClient);
       if (cache) return cache;
-      movieAPI.getMovie(+id).then((res) => dispatch(setMovieState(res)));
+      return movieAPI.getMovie(+id).then((res) => dispatch(setMovieState(res)));
     },
   });
 

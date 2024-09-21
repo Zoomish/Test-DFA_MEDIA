@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { movieReducer } from "./movieSlice/movieSlice";
 
 export const makeStore = () => {
   return configureStore({
-    reducer: {},
+    reducer: { movies: movieReducer },
   });
 };
 export type AppStore = ReturnType<typeof makeStore>;

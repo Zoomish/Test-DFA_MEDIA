@@ -1,6 +1,19 @@
 "use client";
-import styles from "./movieCardList.module.scss";
+import { useAppSelector } from "@/redux/hooks";
+import styles from "./movieCardList.scss";
+import { BASE_URL_IMG } from "@/utils/const";
 
 export default function MovieCardList() {
-  return <div className={styles.container}></div>;
+  const movies = useAppSelector((state) => state.movies.movies);
+  return (
+    <div className={styles.container}>
+      {movies.map((movie) => (
+        <div key={movie.id} className={styles.movieCard}>
+          <img src={BASE_URL_IMG + movie.poster_path} alt={movie.title} />
+          <h3>{movie.title}</h3>
+          <p>{movie.overview}</p>
+        </div>
+      ))}
+    </div>
+  );
 }

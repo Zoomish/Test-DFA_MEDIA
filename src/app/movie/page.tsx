@@ -16,10 +16,25 @@ export default function Home() {
   if (error) return "An error has occurred: " + error.message;
   return (
     <div className={styles.container}>
-      <Carousel  dotPosition="left" dots={false} infinite autoplaySpeed={6000} className={styles.carousel}>
-        {data.map((movie: any)=> (
+      <Carousel
+        dotPosition="left"
+        dots={false}
+        infinite
+        autoplaySpeed={6000}
+        className={styles.carousel}
+      >
+        {data.map((movie: any) => (
           <div className={styles.carouselel} key={movie.id}>
-            <img src={BASE_URL_IMG + movie.backdrop_path} className={styles.img} alt={movie.title} />
+            <img
+              src={BASE_URL_IMG + movie.backdrop_path}
+              className={styles.imgBackground}
+              alt={movie.title}
+            />
+            <img
+              src={BASE_URL_IMG + movie.backdrop_path}
+              className={styles.img}
+              alt={movie.title}
+            />
           </div>
         ))}
       </Carousel>

@@ -6,7 +6,7 @@ export const getMovies = async () => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
     },
-  }).then( (res) => res.json());
+  }).then((res) => res.json());
 };
 
 export const getMovie = async (id: number) => {
@@ -16,6 +16,5 @@ export const getMovie = async (id: number) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
     },
-  }).then( (res) => res.json());
+  }).then((res) => res.json());
 };
-

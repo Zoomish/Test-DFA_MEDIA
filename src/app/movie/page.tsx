@@ -10,7 +10,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import MovieCardList from "@/components/MovieCardList/MovieCardList";
 import { getFromCache } from "@/utils/helper";
 import Link from "next/link";
-import { ClimbingBoxLoader } from "react-spinners";
+import Loader from "@/components/Loader/Loader";
 
 export default function Movies() {
   const queryClient = useQueryClient();
@@ -29,7 +29,7 @@ export default function Movies() {
     },
   });
   const movies = useAppSelector((state) => state.movies.movies);
-  if (isPending) return <ClimbingBoxLoader />;
+  if (isPending) return <Loader />;
 
   if (error) return "An error has occurred: " + error.message;
   return (

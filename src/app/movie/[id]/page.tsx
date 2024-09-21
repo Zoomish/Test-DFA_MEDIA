@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation";
 import * as movieAPI from "@/utils/api/movie-api";
 import { setMovieState } from "@/redux/movieSlice/movieSlice";
 import { getFromCache } from "@/utils/helper";
-import { ClimbingBoxLoader } from "react-spinners";
+import Loader from "@/components/Loader/Loader";
+
 
 export default function Movie() {
   const queryClient = useQueryClient();
@@ -23,7 +24,7 @@ export default function Movie() {
 
   const movie = useAppSelector((state) => state.movies.movie);
 
-  if (isPending) return <ClimbingBoxLoader />;
+  if (isPending) return <Loader />;
 
   if (error) return "An error has occurred: " + error.message;
   return (

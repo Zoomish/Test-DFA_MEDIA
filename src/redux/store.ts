@@ -3,7 +3,7 @@ import { movieReducer } from "./movieSlice/movieSlice";
 
 export const makeStore = () => {
   return configureStore({
-    reducer: { movie: movieReducer },
+    reducer: { movies: movieReducer },
   });
 };
 export type AppStore = ReturnType<typeof makeStore>;

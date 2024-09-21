@@ -15,7 +15,7 @@ export default function Home() {
       movieAPI.getMovie(+id).then((res) => dispatch(setMovieState(res))),
   });
 
-  const movie = useAppSelector((state) => state.movie.movie);
+  const movie = useAppSelector((state) => state.movies.movie);
 
   if (isPending) return "Loading...";
 

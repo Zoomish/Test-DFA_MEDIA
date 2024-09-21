@@ -3,38 +3,26 @@ import { useQuery } from "@tanstack/react-query";
 import * as movieAPI from "@/utils/api/movie-api";
 import styles from "./movie.module.scss";
 import { Carousel } from "antd";
+import { BASE_URL_IMG } from "@/utils/const";
 
 export default function Home() {
   const { isPending, error, data } = useQuery({
     queryKey: ["movies"],
-    queryFn: () => movieAPI.getMovies().then((res) => res),
+    queryFn: () => movieAPI.getMovies().then((res) => res.results),
   });
   if (isPending) return "Loading...";
   console.log(data);
 
   if (error) return "An error has occurred: " + error.message;
-  const contentStyle: React.CSSProperties = {
-    height: "160px",
-    color: "#fff",
-    lineHeight: "160px",
-    textAlign: "center",
-    background: "#364d79",
-  };
   return (
     <div className={styles.container}>
-      <Carousel autoplay dotPosition="left">
-        <div>
-          <h3 style={contentStyle}>1</h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>2</h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>3</h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>4</h3>
-        </div>
+      <Carousel autoplay dotPosition="left" infinite autoplaySpeed={6000} className={styles.carousel}>
+        {data.map((movie: any)=> (
+          <div className={styles.carouselel} key={movie.id}>
+            <img src={BASE_URL_IMG + movie.poster_path} className={styles.img} alt={movie.title} />
+            <h2>{movie.title}</h2>
+          </div>
+        ))}
       </Carousel>
     </div>
   );

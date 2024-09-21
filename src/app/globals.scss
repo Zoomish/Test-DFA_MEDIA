@@ -27,7 +27,12 @@ a {
 a:hover {
   color: #2bb9fb;
 }
-:where(.css-dev-only-do-not-override-qnu6hi).ant-carousel{
+:where(.css-dev-only-do-not-override-qnu6hi).ant-carousel {
   display: flex;
   justify-content: center;
+}
+.slick-list {
+  * {
+    height: 100% !important;
+  }
 }

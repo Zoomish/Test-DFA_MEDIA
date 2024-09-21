@@ -1,6 +1,6 @@
 import { BASE_URL } from "../const";
 export const getMovies = async () => {
-  return await fetch(`${BASE_URL}/discover/movie`, {
+  return await fetch(`${BASE_URL}/discover/movie?language=ru-RU`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

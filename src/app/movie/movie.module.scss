@@ -5,18 +5,23 @@
   justify-content: start;
   min-height: 100vh;
   margin: 0;
-  padding: 0;
+  padding: 20px 0;
   background: rgb(49, 142, 184);
+  background: linear-gradient(
+    214deg,
+    rgba(49, 142, 184, 1) 0%,
+    rgba(239, 148, 255, 1) 20%,
+    rgba(174, 0, 255, 1) 50%
+  );
 }
 
 .carousel {
   width: 90%;
-  height: 500px;
+  max-height: 400px;
   overflow: hidden;
   margin-bottom: 20px;
   display: flex !important;
   justify-content: center;
-  
 }
 
 .img {

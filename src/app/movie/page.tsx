@@ -18,6 +18,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Carousel
+        autoplay
         dotPosition="left"
         dots={false}
         infinite
@@ -38,7 +39,8 @@ export default function Home() {
             />
             <p className={styles.text_title}>{movie.title}</p>
             <p className={styles.text_date}>
-              {movie.release_date} &nbsp;&nbsp;&nbsp;&nbsp;{Math.floor(movie.vote_average * 100) / 100}★
+              {movie.release_date} &nbsp;&nbsp;&nbsp;&nbsp;
+              {Math.floor(movie.vote_average * 100) / 100}★
             </p>
             <p className={styles.text_overview}>{movie.overview}</p>
           </div>

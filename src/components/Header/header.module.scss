@@ -2,6 +2,12 @@
   margin: 0;
   padding: 5px 0;
   display: flex;
-  justify-content: center;
-  background-color: #c5c5c5;
+  justify-content: space-between;
+  background: rgb(49, 142, 184);
+  background: linear-gradient(
+    90deg,
+    rgba(49, 142, 184, 1) 0%,
+    rgba(239, 148, 255, 1) 38%,
+    rgba(174, 0, 255, 1) 94%
+  );
 }

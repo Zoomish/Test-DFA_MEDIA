@@ -1,22 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 export interface IMovieState {
-  authState: boolean;
+  movie: object;
 }
 
 const initialState: IMovieState = {
-  authState: false,
+  movie: {},
 };
 
 export const movieSlice = createSlice({
-  name: "auth",
+  name: "movie",
   initialState,
   reducers: {
-    setMovieState: (state, action: PayloadAction<boolean>) => {
-      state.authState = action.payload;
+    setMovieState: (state, action: PayloadAction<object>) => {
+      state.movie = action.payload;
     },
   },
 });
 
 export const { setMovieState } = movieSlice.actions;
-export const authReducer = movieSlice.reducer;
+export const movieReducer = movieSlice.reducer;

@@ -1,5 +1,5 @@
 "use client";
-import { useAppDispatch } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { useQuery } from "@tanstack/react-query";
 import { usePathname } from "next/navigation";
 import * as movieAPI from "@/utils/api/movie-api";
@@ -7,22 +7,22 @@ import { setMovieState } from "@/redux/movieSlice/movieSlice";
 
 export default function Home() {
   const router = usePathname().split("/");
-
-  const dispatch = useAppDispatch();
-
   const id = router[router.length - 1];
-
-  const { isPending, error, data } = useQuery({
+  const dispatch = useAppDispatch();
+  const { isPending, error } = useQuery({
     queryKey: ["movie"],
-    queryFn: () => movieAPI.getMovie(+id).then((res) => res),
+    queryFn: () =>
+      movieAPI.getMovie(+id).then((res) => dispatch(setMovieState(res))),
   });
+
+  const movie = useAppSelector((state) => state.movie.movie);
+
   if (isPending) return "Loading...";
-  dispatch(setMovieState(data))
 
   if (error) return "An error has occurred: " + error.message;
   return (
     <div>
-      <p>Film: {JSON.stringify(data)}</p>
+      <p>Film: {JSON.stringify(movie)}</p>
     </div>
   );
 }

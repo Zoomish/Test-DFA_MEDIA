@@ -6,7 +6,7 @@ import { useDebounce } from "@uidotdev/usehooks";
 import { useAppDispatch } from "@/redux/hooks";
 import { setSearchState } from "@/redux/seachSlice/searchSlice";
 import { Input } from "antd";
-export default function Header() {
+export default function Sort() {
   const [filter, setFilter] = useState("");
   const dispatch = useAppDispatch();
   const debouncedFilter = useDebounce(filter, 500);

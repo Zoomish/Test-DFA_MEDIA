@@ -61,9 +61,14 @@ export default function MovieFull() {
       </div>
       <p>Актеры: </p>
       <div>
-        <Carousel responsive={responsive} infinite={true}>
+        <Carousel responsive={responsive} infinite ssr arrows={false}>
           {movie.actors.map((actor: TActor) => {
-            return <div key={actor.id}>{actor.name}</div>;
+            return (
+              <div key={actor.id}>
+                <img src={BASE_URL_IMG + actor.profile_path} alt="" />
+                <p>{actor.name}</p>
+              </div>
+            );
           })}
         </Carousel>
       </div>

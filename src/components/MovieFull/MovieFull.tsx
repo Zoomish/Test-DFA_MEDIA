@@ -1,11 +1,29 @@
-import { TCountry, TMovieFull } from "@/utils/typesFromBackend";
+import { TActor, TCountry } from "@/utils/typesFromBackend";
 import styles from "./movie.module.scss";
+import "react-multi-carousel/lib/styles.css";
 import { useAppSelector } from "@/redux/hooks";
 import { BASE_URL_IMG } from "@/utils/const";
+import Carousel from "react-multi-carousel";
 
 export default function MovieFull() {
   const movie = useAppSelector((state) => state.movies.movie);
-
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+      slidesToSlide: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      slidesToSlide: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      slidesToSlide: 1,
+    },
+  };
   return (
     <>
       <div className={styles.top}>
@@ -42,7 +60,13 @@ export default function MovieFull() {
         </div>
       </div>
       <p>Актеры: </p>
-      <div></div>
+      <div>
+        <Carousel responsive={responsive} infinite={true}>
+          {movie.actors.map((actor: TActor) => {
+            return <div key={actor.id}>{actor.name}</div>;
+          })}
+        </Carousel>
+      </div>
     </>
   );
 }

@@ -1,5 +1,5 @@
 .actor {
-    border-radius: 5px;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,13 +8,13 @@
   width: 150px;
   height: 100%;
   overflow: hidden;
-  background: rgb(255, 161, 0);
+  background: rgb(255, 255, 255);
   background: linear-gradient(
     131deg,
-    rgba(255, 161, 0, 1) 0%,
-    rgba(255, 234, 0, 1) 25%,
-    rgba(8, 255, 57, 1) 74%,
-    rgba(14, 114, 232, 1) 100%
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 0, 0, 1) 34%,
+    rgba(68, 85, 74, 1) 74%,
+    rgba(229, 194, 88, 1) 100%
   );
 }
 .img {
@@ -24,7 +24,7 @@
   object-position: center;
 }
 
-.text{
+.text {
   display: flex;
   flex-direction: column;
   align-items: center;

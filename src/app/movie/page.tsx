@@ -8,7 +8,7 @@ import { useAppDispatch } from "@/redux/hooks";
 import MovieCardList from "@/components/MovieCardList/MovieCardList";
 import { getFromCache } from "@/utils/helper";
 import Loader from "@/components/Loader/Loader";
-import Slider from "@/components/Clider/Clider";
+import Slider from "@/components/Slider/Slider";
 
 export default function Movies() {
   const queryClient = useQueryClient();

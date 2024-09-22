@@ -1,5 +1,17 @@
 import { BASE_URL } from "../const";
-export const getMovies = async () => {
+export const getMovies = async (search: string) => {
+  if (search) {
+    return await fetch(
+      `${BASE_URL}/search/movie?query=${search}?language=ru-RU`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+        },
+      }
+    ).then((res) => res.json());
+  }
   return await fetch(`${BASE_URL}/discover/movie?language=ru-RU`, {
     method: "GET",
     headers: {

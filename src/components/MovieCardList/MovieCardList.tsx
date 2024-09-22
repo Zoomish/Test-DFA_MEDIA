@@ -20,6 +20,7 @@ export default function MovieCardList() {
         .then((res: TMovieShort[]) => dispatch(setFilteredMoviesState(res)));
     },
   });
+
   const movies =
     search !== ""
       ? useAppSelector((state) => state.movies.filteredmovies)

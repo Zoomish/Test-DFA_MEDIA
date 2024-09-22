@@ -26,9 +26,6 @@ export default function Header() {
         <Link href={"/movie"} className={styles.a}>
           Movies
         </Link>
-        <Link href={"/user/sign-up"} className={styles.a}>
-          Sign Up
-        </Link>
       </div>
     </div>
   );

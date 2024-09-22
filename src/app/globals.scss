@@ -27,15 +27,15 @@ a {
 a:hover {
   color: #2bb9fb;
 }
-:where(.css-dev-only-do-not-override-qnu6hi).ant-carousel {
-  display: flex;
-  justify-content: center;
-}
-.slick-list {
+.carousel-root {
   * {
-    height: 100% !important;
+    max-height: 60vh;
   }
 }
-:where(.css-dev-only-do-not-override-qnu6hi).ant-popover {
+.ant-popover {
   max-width: 40% !important;
+}
+
+::-webkit-scrollbar {
+  width: 0;
 }

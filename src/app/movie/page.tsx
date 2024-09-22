@@ -1,17 +1,14 @@
 "use client";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import * as movieAPI from "@/utils/api/movie-api";
-import styles from "./movie.module.scss";
-import { Carousel } from "antd";
-import { BASE_URL_IMG } from "@/utils/const";
+import styles from "./movies.module.scss";
 import { TMovieShort } from "@/utils/typesFromBackend";
 import { setMoviesState } from "@/redux/movieSlice/movieSlice";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useAppDispatch } from "@/redux/hooks";
 import MovieCardList from "@/components/MovieCardList/MovieCardList";
 import { getFromCache } from "@/utils/helper";
-import Link from "next/link";
 import Loader from "@/components/Loader/Loader";
-import Slider from "@/components/Clider/Clider";
+import Slider from "@/components/Slider/Slider";
 
 export default function Movies() {
   const queryClient = useQueryClient();

@@ -19,6 +19,7 @@ export default function MovieFull() {
         <h1>
           {movie.title} ({movie.release_date.slice(0, 4)})
         </h1>
+        <p className={styles.original_title}>{movie.original_title}</p>
         <p>Год производства: {movie.release_date.slice(0, 4)}</p>
         <p>
           Страна производства:{" "}

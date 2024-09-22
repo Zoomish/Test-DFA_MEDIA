@@ -7,6 +7,7 @@ import { setMovieState } from "@/redux/movieSlice/movieSlice";
 import { getFromCache } from "@/utils/helper";
 import Loader from "@/components/Loader/Loader";
 import MovieFull from "@/components/MovieFull/MovieFull";
+import styles from "./movie.module.scss";
 import { TMovieFull } from "@/utils/typesFromBackend";
 
 export default function Movie() {
@@ -28,5 +29,9 @@ export default function Movie() {
   if (isPending) return <Loader />;
 
   if (error) return "An error has occurred: " + error.message;
-  return <MovieFull></MovieFull>;
+  return (
+    <div className={styles.container}>
+      <MovieFull></MovieFull>
+    </div>
+  );
 }

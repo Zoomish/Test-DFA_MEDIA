@@ -1,0 +1,17 @@
+.container {
+    background: rgb(8, 255, 57);
+    background: linear-gradient(
+      131deg,
+      rgba(8, 255, 57, 1) 0%,
+      rgba(223, 232, 14, 1) 21%,
+      rgba(255, 156, 0, 1) 50%,
+      rgba(255, 113, 113, 1) 78%,
+      rgba(249, 0, 0, 1) 98%
+    );
+    display: flex;
+    flex-direction: column;
+    align-items: flex-flex-start;
+    justify-content: flex-flex-start;
+    min-height: 100vh;
+  }
+  

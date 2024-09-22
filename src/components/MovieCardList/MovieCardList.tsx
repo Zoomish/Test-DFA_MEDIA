@@ -6,13 +6,14 @@ import * as movieAPI from "@/utils/api/movie-api";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { setFilteredMoviesState } from "@/redux/movieSlice/movieSlice";
-import Loader from "../Loader/Loader";
 
 export default function MovieCardList() {
   const dispatch = useAppDispatch();
   const search = useAppSelector((state) => state.search.search);
+  console.log(!!search);
+
   const { isPending, error } = useQuery({
-    queryKey: ["movies", search],
+    queryKey: ["filteredmovies", search],
     enabled: !!search,
     queryFn: () => {
       return movieAPI
@@ -21,12 +22,10 @@ export default function MovieCardList() {
         .then((res: TMovieShort[]) => dispatch(setFilteredMoviesState(res)));
     },
   });
-  const movies = search
-    ? useAppSelector((state) => state.movies.filteredmovies)
-    : useAppSelector((state) => state.movies.movies);
-  if (isPending) return <Loader />;
-
-  if (error) return "An error has occurred: " + error.message;
+  const movies =
+    search !== ""
+      ? useAppSelector((state) => state.movies.filteredmovies)
+      : useAppSelector((state) => state.movies.movies);
   return (
     <div className={styles.container}>
       {movies.map((movie: TMovieShort) => (

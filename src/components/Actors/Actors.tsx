@@ -13,7 +13,7 @@ export default function Actors() {
   const responsive = {
     desktop: {
       breakpoint: { min: 0, max: 10000 },
-      items: availableScreenWidth/180,
+      items: availableScreenWidth / 180,
     },
   };
   return (
@@ -26,6 +26,11 @@ export default function Actors() {
               className={styles.img}
               src={BASE_URL_IMG + actor.profile_path}
               alt={actor.name}
+              onError={({ currentTarget }) => {
+                currentTarget.onerror = null;
+                currentTarget.src =
+                  "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png?20200912122019";
+              }}
             />
             <div className={styles.text}>
               <p className={styles.firstLine}>{actor.name}</p>

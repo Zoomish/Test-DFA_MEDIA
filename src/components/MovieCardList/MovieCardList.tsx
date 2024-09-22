@@ -21,7 +21,10 @@ export default function MovieCardList() {
     },
   });
 
-  const movies = useAppSelector((state) => state.movies.filteredmovies);
+  const movies =
+    search !== ""
+      ? useAppSelector((state) => state.movies.filteredmovies)
+      : useAppSelector((state) => state.movies.movies);
   if (error) return "An error has occurred: " + error.message;
   return (
     <div className={styles.container}>

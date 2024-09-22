@@ -1,21 +1,21 @@
 "use client";
 import styles from "./slider.module.scss";
-import { Carousel } from "antd";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { BASE_URL_IMG } from "@/utils/const";
 import { TMovieShort } from "@/utils/typesFromBackend";
 import { useAppSelector } from "@/redux/hooks";
+import { Carousel } from "react-responsive-carousel";
 import Link from "next/link";
 
 export default function Slider() {
   const movies = useAppSelector((state) => state.movies.movies);
   return (
-    movies.length>0 && (
+    movies.length > 0 && (
       <Carousel
-        autoplay
-        dotPosition="left"
-        dots={false}
-        infinite
-        autoplaySpeed={6000}
+        axis="vertical"
+        autoPlay={true}
+        infiniteLoop
+        interval={6000}
         className={styles.carousel}
       >
         {movies.map((movie: TMovieShort) => (

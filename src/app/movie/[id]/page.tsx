@@ -29,7 +29,9 @@ export default function Movie() {
   if (error) return "An error has occurred: " + error.message;
   return (
     <div className={styles.container}>
-      <p>Film: {JSON.stringify(movie)}</p>
+      <div>
+        <h1>{movie.title}</h1>
+      </div>
     </div>
   );
 }

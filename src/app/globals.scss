@@ -27,16 +27,12 @@ a {
 a:hover {
   color: #2bb9fb;
 }
-:where(.css-dev-only-do-not-override-qnu6hi).ant-carousel {
-  display: flex;
-  justify-content: center;
-}
 .carousel-root {
   * {
     max-height: 60vh;
   }
 }
-:where(.css-dev-only-do-not-override-qnu6hi).ant-popover {
+.ant-popover {
   max-width: 40% !important;
 }
 

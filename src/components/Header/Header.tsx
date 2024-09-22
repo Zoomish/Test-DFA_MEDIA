@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { useDebounce } from "@uidotdev/usehooks";
 import { useAppDispatch } from "@/redux/hooks";
 import { setSearchState } from "@/redux/seachSlice/searchSlice";
-import { Input } from "antd";
 export default function Header() {
   const [filter, setFilter] = useState("");
   const dispatch = useAppDispatch();
@@ -22,7 +21,7 @@ export default function Header() {
         Zoomish
       </Link>
       <div className={styles.links}>
-        <Input onChange={handleFilterChange} placeholder="Basic usage" />
+        <input onChange={handleFilterChange} placeholder="Basic usage" />
         <Link href={"/movie"} className={styles.a}>
           Movies
         </Link>

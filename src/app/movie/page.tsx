@@ -11,6 +11,7 @@ import MovieCardList from "@/components/MovieCardList/MovieCardList";
 import { getFromCache } from "@/utils/helper";
 import Link from "next/link";
 import Loader from "@/components/Loader/Loader";
+import Slider from "@/components/Clider/Clider";
 
 export default function Movies() {
   const queryClient = useQueryClient();
@@ -28,45 +29,12 @@ export default function Movies() {
         .then((res: TMovieShort[]) => dispatch(setMoviesState(res)));
     },
   });
-  const movies = useAppSelector((state) => state.movies.movies);
   if (isPending) return <Loader />;
 
   if (error) return "An error has occurred: " + error.message;
   return (
     <div className={styles.container}>
-      <Carousel
-        autoplay
-        dotPosition="left"
-        dots={false}
-        infinite
-        autoplaySpeed={6000}
-        className={styles.carousel}
-      >
-        {movies.map((movie: TMovieShort) => (
-          <Link href={`/movie/${movie.id}`} key={movie.id}>
-            <div className={styles.carouselel} key={movie.id}>
-              <img
-                src={BASE_URL_IMG + movie.backdrop_path}
-                className={styles.imgBackground}
-                alt={movie.title}
-              />
-              <img
-                src={BASE_URL_IMG + movie.backdrop_path}
-                className={styles.img}
-                alt={movie.title}
-              />
-              <div className={styles.text}>
-                <p className={styles.text_title}>{movie.title}</p>
-                <p className={styles.text_date}>
-                  {movie.release_date} &nbsp;&nbsp;&nbsp;&nbsp;
-                  {Math.floor(movie.vote_average * 10) / 10}★
-                </p>
-                <p className={styles.text_overview}>{movie.overview}</p>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </Carousel>
+      <Slider />
       <MovieCardList />
     </div>
   );

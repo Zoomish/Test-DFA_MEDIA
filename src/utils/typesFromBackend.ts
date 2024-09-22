@@ -22,7 +22,7 @@ export interface TMovieFull extends TMovieShort {
   homepage: string;
   imdb_id: string;
   production_companies: Array<number>;
-  production_countries: Array<number>;
+  production_countries: TCountry[];
   revenue: number;
   runtime: number;
   spoken_languages: Array<number>;
@@ -33,4 +33,9 @@ export interface TMovieFull extends TMovieShort {
 export interface TGenres {
   id: number;
   name: string;
+}
+
+export interface TCountry {
+  iso_3166_1: string
+  name: string
 }

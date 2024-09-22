@@ -1,4 +1,4 @@
-import { TMovieFull } from "@/utils/typesFromBackend";
+import { TCountry, TMovieFull } from "@/utils/typesFromBackend";
 import styles from "./movie.module.scss";
 import { useAppSelector } from "@/redux/hooks";
 import { BASE_URL_IMG } from "@/utils/const";
@@ -19,6 +19,20 @@ export default function MovieFull() {
         <h1>
           {movie.title} ({movie.release_date.slice(0, 4)})
         </h1>
+        <p>Год производства: {movie.release_date.slice(0, 4)}</p>
+        <p>
+          Страна производства:{" "}
+          {movie.production_countries.map((country: TCountry) => {
+            return `${country.name}`;
+          })}
+        </p>
+        <p>
+          Жанр:{" "}
+          {movie.genres.map((genre) => {
+            return `${genre.name}, `;
+          })}
+        </p>
+        <p>Год производства: {movie.release_date.slice(0, 4)}</p>
       </div>
     </div>
   );

@@ -8,11 +8,13 @@
   justify-content: space-between;
   text-shadow: 1px 1px 2px black;
   font-size: 22px;
+  flex-wrap: nowrap;
 }
 
 .a {
   color: white;
   text-decoration: none;
+  text-wrap: nowrap;
 }
 .links{
   display: flex;

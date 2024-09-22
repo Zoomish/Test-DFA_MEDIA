@@ -35,7 +35,7 @@ export default function MovieFull() {
                 return `${genre.name}, `;
               })}
             </p>
-            <p>Бюджет: {movie.budget}</p>
+            <p>Бюджет: {movie.budget.toLocaleString('ru')}</p>
             <p>Рейтинг: {movie.vote_average}</p>
             <p>Описание: {movie.overview}</p>
           </div>

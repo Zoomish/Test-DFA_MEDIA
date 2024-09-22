@@ -11,7 +11,7 @@ export const getMovies = async () => {
 
 export const getSearchMovies = async (search: string) => {
   return await fetch(
-    `${BASE_URL}/search/movie?query=${search}?language=ru-RU`,
+    `${BASE_URL}/search/movie?query=${search}&language=ru-RU`,
     {
       method: "GET",
       headers: {

@@ -13,7 +13,7 @@ export default function Actors() {
   const responsive = {
     desktop: {
       breakpoint: { min: 0, max: 10000 },
-      items: availableScreenWidth / 180,
+      items: Math.floor(availableScreenWidth / 180),
     },
   };
   return (

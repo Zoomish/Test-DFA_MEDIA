@@ -34,7 +34,7 @@ export default function MovieFull() {
               return `${genre.name}, `;
             })}
           </p>
-          <p>Год производства: {movie.release_date.slice(0, 4)}</p>
+          <p>Бюджет: {movie.budget}</p>
         </div>
       </div>
     </div>

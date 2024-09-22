@@ -28,15 +28,21 @@
   max-width: 500px;
 }
 
-.original_title{
-  color: #ffffffa0
+.original_title {
+  color: #ffffffa0;
 }
 
-.info{
+.info {
   padding-top: 5px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   gap: 10px;
+}
+
+.actors {
+  margin: 15px;
+  text-shadow: 1px 1px 2px black;
+  font-size: 20px;
 }

@@ -41,7 +41,7 @@ export default function MovieFull() {
           </div>
         </div>
       </div>
-      <p>Актеры: </p>
+      <p className={styles.actors}>Актеры: </p>
       <div>
         <Actors/>
       </div>

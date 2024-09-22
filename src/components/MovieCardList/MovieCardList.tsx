@@ -20,11 +20,13 @@ export default function MovieCardList() {
         .then((res: TMovieShort[]) => dispatch(setFilteredMoviesState(res)));
     },
   });
+  const unfilteredMovies = useAppSelector((state) => state.movies.movies);
+  const filteredMovies = useAppSelector((state) => state.movies.filteredmovies)
 
   const movies =
     search !== ""
-      ? useAppSelector((state) => state.movies.filteredmovies)
-      : useAppSelector((state) => state.movies.movies);
+      ? filteredMovies
+      : unfilteredMovies
   if (error) return "An error has occurred: " + error.message;
   return (
     <div className={styles.container}>

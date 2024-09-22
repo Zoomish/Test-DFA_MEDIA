@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import * as movieAPI from "@/utils/api/movie-api";
 import { setMovieState } from "@/redux/movieSlice/movieSlice";
 import { getFromCache } from "@/utils/helper";
-import styles from "./movie.module.scss";
 import Loader from "@/components/Loader/Loader";
 
 export default function Movie() {
@@ -22,16 +21,8 @@ export default function Movie() {
     },
   });
 
-  const movie = useAppSelector((state) => state.movies.movie);
-
   if (isPending) return <Loader />;
 
   if (error) return "An error has occurred: " + error.message;
-  return (
-    <div className={styles.container}>
-      <div>
-        <h1>{movie.title}</h1>
-      </div>
-    </div>
-  );
+  return <Movie></Movie>;
 }

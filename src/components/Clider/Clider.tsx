@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function Slider() {
   const movies = useAppSelector((state) => state.movies.movies);
   return (
-    movies.length && (
+    movies.length>0 && (
       <Carousel
         autoplay
         dotPosition="left"

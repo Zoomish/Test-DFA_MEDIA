@@ -29,8 +29,16 @@ export default function Actors() {
       {movie.actors.map((actor: TActor) => {
         return (
           <div key={actor.id} className={styles.actor}>
-            <img draggable={false} className={styles.img} src={BASE_URL_IMG + actor.profile_path} alt="" />
-            <p>{actor.name}</p>
+            <img
+              draggable={false}
+              className={styles.img}
+              src={BASE_URL_IMG + actor.profile_path}
+              alt={actor.name}
+            />
+            <div className={styles.text}>
+              <p className={styles.firstLine}>{actor.name}</p>
+              <p className={styles.secondLine}>{actor.character}</p>
+            </div>
           </div>
         );
       })}

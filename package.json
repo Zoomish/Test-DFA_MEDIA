@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "npx npm-check-updates -u && next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "npx npm-check-updates -u && next build",
+    "start": "npx npm-check-updates -u && next start",
     "lint": "next lint"
   },
   "dependencies": {

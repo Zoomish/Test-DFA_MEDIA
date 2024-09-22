@@ -31,9 +31,9 @@ a:hover {
   display: flex;
   justify-content: center;
 }
-.carousel-root .slider_carousel__mN_Wp {
+.carousel-root {
   * {
-    height: 100% !important;
+    max-height: 60vh;
   }
 }
 :where(.css-dev-only-do-not-override-qnu6hi).ant-popover {

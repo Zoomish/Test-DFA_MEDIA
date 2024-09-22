@@ -17,6 +17,10 @@ export default function Slider() {
         infiniteLoop
         interval={6000}
         className={styles.carousel}
+        showArrows={false}
+        showStatus={false}
+        showIndicators={false}
+        showThumbs={false}
       >
         {movies.map((movie: TMovieShort) => (
           <Link href={`/movie/${movie.id}`} key={movie.id}>

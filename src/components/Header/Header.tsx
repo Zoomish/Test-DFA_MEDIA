@@ -22,7 +22,7 @@ export default function Header() {
         Zoomish
       </Link>
       <div className={styles.links}>
-        <Input onChange={handleFilterChange}></Input>
+        <Input onChange={handleFilterChange} placeholder="Basic usage" />
         <Link href={"/movie"} className={styles.a}>
           Movies
         </Link>

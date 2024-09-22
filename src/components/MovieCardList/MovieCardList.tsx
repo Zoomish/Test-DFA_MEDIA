@@ -10,8 +10,6 @@ import { setFilteredMoviesState } from "@/redux/movieSlice/movieSlice";
 export default function MovieCardList() {
   const dispatch = useAppDispatch();
   const search = useAppSelector((state) => state.search.search);
-  console.log(!!search);
-
   const { isPending, error } = useQuery({
     queryKey: ["filteredmovies", search],
     enabled: !!search,

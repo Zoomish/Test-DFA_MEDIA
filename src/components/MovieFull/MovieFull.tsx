@@ -35,16 +35,14 @@ export default function MovieFull() {
                 return `${genre.name}, `;
               })}
             </p>
-            <p>Бюджет: {movie.budget.toLocaleString('ru')}</p>
+            <p>Бюджет: {movie.budget.toLocaleString("ru")}</p>
             <p>Рейтинг: {Math.floor(movie.vote_average * 10) / 10}★</p>
             <p>Описание: {movie.overview}</p>
           </div>
         </div>
       </div>
       <p>Актеры: </p>
-      <div >
-
-      </div>
+      <div></div>
     </>
   );
 }

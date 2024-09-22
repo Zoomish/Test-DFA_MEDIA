@@ -36,7 +36,7 @@ export default function MovieFull() {
               })}
             </p>
             <p>Бюджет: {movie.budget.toLocaleString('ru')}</p>
-            <p>Рейтинг: {movie.vote_average}</p>
+            <p>Рейтинг: {Math.floor(movie.vote_average * 10) / 10}★</p>
             <p>Описание: {movie.overview}</p>
           </div>
         </div>

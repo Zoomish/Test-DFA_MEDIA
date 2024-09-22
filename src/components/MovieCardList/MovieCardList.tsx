@@ -10,7 +10,7 @@ import { setFilteredMoviesState } from "@/redux/movieSlice/movieSlice";
 export default function MovieCardList() {
   const dispatch = useAppDispatch();
   const search = useAppSelector((state) => state.search.search);
-  const { isPending, error } = useQuery({
+  const { error } = useQuery({
     queryKey: ["filteredmovies", search],
     enabled: !!search,
     queryFn: () => {
@@ -20,11 +20,14 @@ export default function MovieCardList() {
         .then((res: TMovieShort[]) => dispatch(setFilteredMoviesState(res)));
     },
   });
+  if (error) return "An error has occurred: " + error.message;
+  const unfilteredMovies = useAppSelector((state) => state.movies.movies);
+  const filteredMovies = useAppSelector((state) => state.movies.filteredmovies)
 
   const movies =
     search !== ""
-      ? useAppSelector((state) => state.movies.filteredmovies)
-      : useAppSelector((state) => state.movies.movies);
+      ? filteredMovies
+      : unfilteredMovies
   return (
     <div className={styles.container}>
       {movies.map((movie: TMovieShort) => (

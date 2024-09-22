@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "npx npm-check-updates -u && next dev",
-    "build": "npx npm-check-updates -u && next build",
-    "start": "npx npm-check-updates -u && next start",
+    "build": "next build",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -30,7 +30,6 @@
     "@types/node": "^22.5.5",
     "@types/react": "^18.3.8",
     "@types/react-dom": "^18.3.0",
-    "eslint": "^9.11.0",
     "eslint-config-next": "14.2.13",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

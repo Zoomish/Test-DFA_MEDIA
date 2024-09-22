@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 import * as movieAPI from "@/utils/api/movie-api";
 import { setMovieState } from "@/redux/movieSlice/movieSlice";
 import { getFromCache } from "@/utils/helper";
+import styles from "./movie.module.scss";
 import Loader from "@/components/Loader/Loader";
-
 
 export default function Movie() {
   const queryClient = useQueryClient();
@@ -28,7 +28,7 @@ export default function Movie() {
 
   if (error) return "An error has occurred: " + error.message;
   return (
-    <div>
+    <div className={styles.container}>
       <p>Film: {JSON.stringify(movie)}</p>
     </div>
   );

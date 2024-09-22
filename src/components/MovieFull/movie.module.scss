@@ -21,6 +21,7 @@
 .text {
   display: flex;
   flex-direction: column;
+  text-shadow: 1px 1px 2px black;
   align-items: flex-start;
   justify-content: flex-start;
   gap: 10px;
@@ -29,10 +30,12 @@
 }
 
 .original_title {
+  text-shadow: none;
   color: #ffffffa0;
 }
 
 .info {
+  text-shadow: 1px 1px 2px black;
   padding-top: 5px;
   display: flex;
   flex-direction: column;

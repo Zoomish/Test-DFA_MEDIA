@@ -20,20 +20,20 @@ export default function MovieFull() {
           {movie.title} ({movie.release_date.slice(0, 4)})
         </h1>
         <p className={styles.original_title}>{movie.original_title}</p>
-        <p>Год производства: {movie.release_date.slice(0, 4)}</p>
-        <p>
+        <p className={styles.info}>Год производства: {movie.release_date.slice(0, 4)}</p>
+        <p className={styles.info}>
           Страна производства:{" "}
           {movie.production_countries.map((country: TCountry) => {
             return `${country.name}`;
           })}
         </p>
-        <p>
+        <p className={styles.info}>
           Жанр:{" "}
           {movie.genres.map((genre) => {
             return `${genre.name}, `;
           })}
         </p>
-        <p>Год производства: {movie.release_date.slice(0, 4)}</p>
+        <p className={styles.info}>Год производства: {movie.release_date.slice(0, 4)}</p>
       </div>
     </div>
   );

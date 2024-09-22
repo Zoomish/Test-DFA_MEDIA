@@ -21,13 +21,8 @@ export default function MovieCardList() {
     },
   });
   if (error) return "An error has occurred: " + error.message;
-  const unfilteredMovies = useAppSelector((state) => state.movies.movies);
-  const filteredMovies = useAppSelector((state) => state.movies.filteredmovies)
 
-  const movies =
-    search !== ""
-      ? filteredMovies
-      : unfilteredMovies
+  const movies = useAppSelector((state) => state.movies.filteredmovies);
   return (
     <div className={styles.container}>
       {movies.map((movie: TMovieShort) => (

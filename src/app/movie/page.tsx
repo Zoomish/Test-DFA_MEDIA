@@ -3,7 +3,10 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import * as movieAPI from "@/utils/api/movie-api";
 import styles from "./movies.module.scss";
 import { TMovieShort } from "@/utils/typesFromBackend";
-import { setMoviesState } from "@/redux/movieSlice/movieSlice";
+import {
+  setFilteredMoviesState,
+  setMoviesState,
+} from "@/redux/movieSlice/movieSlice";
 import { useAppDispatch } from "@/redux/hooks";
 import MovieCardList from "@/components/MovieCardList/MovieCardList";
 import { getFromCache } from "@/utils/helper";
@@ -23,7 +26,10 @@ export default function Movies() {
       return movieAPI
         .getMovies()
         .then((res) => res.results)
-        .then((res: TMovieShort[]) => dispatch(setMoviesState(res)));
+        .then((res: TMovieShort[]) => {
+          dispatch(setMoviesState(res));
+          dispatch(setFilteredMoviesState(res));
+        });
     },
   });
   if (isPending) return <Loader />;

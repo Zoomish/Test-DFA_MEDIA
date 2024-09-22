@@ -1,5 +1,5 @@
 "use client";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useAppDispatch } from "@/redux/hooks";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { usePathname } from "next/navigation";
 import * as movieAPI from "@/utils/api/movie-api";

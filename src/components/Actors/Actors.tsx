@@ -11,8 +11,7 @@ export default function Actors() {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-      slidesToSlide: 3,
+      items: 5,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -29,8 +28,8 @@ export default function Actors() {
     <Carousel responsive={responsive} infinite ssr arrows={false}>
       {movie.actors.map((actor: TActor) => {
         return (
-          <div key={actor.id}>
-            <img src={BASE_URL_IMG + actor.profile_path} alt="" />
+          <div key={actor.id} className={styles.actor}>
+            <img draggable={false} className={styles.img} src={BASE_URL_IMG + actor.profile_path} alt="" />
             <p>{actor.name}</p>
           </div>
         );

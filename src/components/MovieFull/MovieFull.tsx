@@ -7,36 +7,43 @@ export default function MovieFull() {
   const movie = useAppSelector((state) => state.movies.movie);
 
   return (
-    <div className={styles.top}>
-      <div className={styles.imgContainer}>
-        <img
-          src={BASE_URL_IMG + movie.poster_path}
-          alt={movie.title}
-          className={styles.img}
-        />
-      </div>
-      <div className={styles.text}>
-        <h1>
-          {movie.title} ({movie.release_date.slice(0, 4)})
-        </h1>
-        <p className={styles.original_title}>{movie.original_title}</p>
-        <div className={styles.info}>
-          <p>Год производства: {movie.release_date.slice(0, 4)}</p>
-          <p>
-            Страна производства:{" "}
-            {movie.production_countries.map((country: TCountry) => {
-              return `${country.name}`;
-            })}
-          </p>
-          <p>
-            Жанр:{" "}
-            {movie.genres.map((genre) => {
-              return `${genre.name}, `;
-            })}
-          </p>
-          <p>Бюджет: {movie.budget}</p>
+    <>
+      <div className={styles.top}>
+        <div className={styles.imgContainer}>
+          <img
+            src={BASE_URL_IMG + movie.poster_path}
+            alt={movie.title}
+            className={styles.img}
+          />
+        </div>
+        <div className={styles.text}>
+          <h1>
+            {movie.title} ({movie.release_date.slice(0, 4)})
+          </h1>
+          <p className={styles.original_title}>{movie.original_title}</p>
+          <div className={styles.info}>
+            <p>Год производства: {movie.release_date.slice(0, 4)}</p>
+            <p>
+              Страна производства:{" "}
+              {movie.production_countries.map((country: TCountry) => {
+                return `${country.name}`;
+              })}
+            </p>
+            <p>
+              Жанр:{" "}
+              {movie.genres.map((genre) => {
+                return `${genre.name}, `;
+              })}
+            </p>
+            <p>Бюджет: {movie.budget}</p>
+            <p>Рейтинг: {movie.vote_average}</p>
+            <p>Описание: {movie.overview}</p>
+          </div>
         </div>
       </div>
-    </div>
+      <div >
+
+      </div>
+    </>
   );
 }

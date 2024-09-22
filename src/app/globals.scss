@@ -39,3 +39,7 @@ a:hover {
 :where(.css-dev-only-do-not-override-qnu6hi).ant-popover {
   max-width: 40% !important;
 }
+
+::-webkit-scrollbar {
+  width: 0;
+}

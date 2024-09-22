@@ -7,21 +7,13 @@ import { useAppSelector } from "@/redux/hooks";
 
 export default function Actors() {
   const movie = useAppSelector((state) => state.movies.movie);
+  const availableScreenWidth = window.innerWidth;
+  console.log(availableScreenWidth);
 
   const responsive = {
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 5,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-      slidesToSlide: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-      slidesToSlide: 1,
+      breakpoint: { min: 0, max: 3000 },
+      items: availableScreenWidth/180,
     },
   };
   return (

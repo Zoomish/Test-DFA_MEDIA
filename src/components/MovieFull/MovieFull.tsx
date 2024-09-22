@@ -9,7 +9,14 @@ export default function MovieFull() {
   return (
     <div className={styles.top}>
       <div className={styles.imgContainer}>
-        <img src={BASE_URL_IMG + movie.poster_path} alt={movie.title} className={styles.img}/>
+        <img
+          src={BASE_URL_IMG + movie.poster_path}
+          alt={movie.title}
+          className={styles.img}
+        />
+      </div>
+      <div className={styles.text}>
+        <h1>{movie.title}</h1>
       </div>
     </div>
   );

@@ -41,6 +41,7 @@ export default function MovieFull() {
           </div>
         </div>
       </div>
+      <p>Актеры: </p>
       <div >
 
       </div>

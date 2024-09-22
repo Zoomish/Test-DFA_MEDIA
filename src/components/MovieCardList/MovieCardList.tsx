@@ -20,9 +20,9 @@ export default function MovieCardList() {
         .then((res: TMovieShort[]) => dispatch(setFilteredMoviesState(res)));
     },
   });
-  if (error) return "An error has occurred: " + error.message;
 
   const movies = useAppSelector((state) => state.movies.filteredmovies);
+  if (error) return "An error has occurred: " + error.message;
   return (
     <div className={styles.container}>
       {movies.map((movie: TMovieShort) => (

@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import styles from "./header.module.scss";
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import { useDebounce } from "@uidotdev/usehooks";
 import { useAppDispatch } from "@/redux/hooks";
 import { setSearchState } from "@/redux/seachSlice/searchSlice";
@@ -10,7 +10,7 @@ export default function Header() {
   const [filter, setFilter] = useState("");
   const dispatch = useAppDispatch();
   const debouncedFilter = useDebounce(filter, 500);
-  const handleFilterChange = (e: any) => {
+  const handleFilterChange = (e: { target: { value: SetStateAction<string>; }; }) => {
     setFilter(e.target.value);
   };
   useEffect(() => {

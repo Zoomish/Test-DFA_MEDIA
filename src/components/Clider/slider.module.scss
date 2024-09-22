@@ -61,4 +61,7 @@
   -webkit-box-orient: vertical;
   line-clamp: 5;
   box-orient: vertical;
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 }

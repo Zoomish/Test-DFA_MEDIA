@@ -8,8 +8,6 @@ import { useAppSelector } from "@/redux/hooks";
 export default function Actors() {
   const movie = useAppSelector((state) => state.movies.movie);
   const availableScreenWidth = window.innerWidth;
-  console.log(availableScreenWidth);
-
   const responsive = {
     desktop: {
       breakpoint: { min: 0, max: 10000 },

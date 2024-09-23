@@ -28,7 +28,6 @@ export interface TMovieFull extends TMovieShort {
   spoken_languages: Array<number>;
   status: string;
   tagline: string;
-  actors: TActor[];
 }
 
 export interface TGenres {
@@ -39,6 +38,26 @@ export interface TGenres {
 export interface TCountry {
   iso_3166_1: string;
   name: string;
+}
+
+export interface TActors {
+  id: number;
+  cast: TActor[];
+  crew: TPerson[];
+}
+
+export interface TPerson {
+  adult: boolean;
+  gender: number;
+  id: number;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path: string;
+  credit_id: string;
+  department: string;
+  job: string;
 }
 
 export interface TActor {

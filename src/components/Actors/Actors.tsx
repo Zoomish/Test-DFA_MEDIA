@@ -1,15 +1,28 @@
+"use client";
 import styles from "./actors.module.scss";
+import * as actorAPI from "@/utils/api/actor-api";
 import "react-multi-carousel/lib/styles.css";
 import Carousel from "react-multi-carousel";
-import { TActor } from "@/utils/typesFromBackend";
+import { TActor, TActors } from "@/utils/typesFromBackend";
 import { BASE_URL_IMG } from "@/utils/const";
-import { useAppSelector } from "@/redux/hooks";
+import { useQuery } from "@tanstack/react-query";
+import { usePathname } from "next/navigation";
+import Loader from "../Loader/Loader";
 
 export default function Actors() {
-  const movie = useAppSelector((state) => state.movies.movie);
-  const availableScreenWidth = window.innerWidth;
-  console.log(availableScreenWidth);
+  const router = usePathname().split("/");
+  const id = router[router.length - 1];
+  const { isPending, error, data } = useQuery<TActors>({
+    queryKey: [`movie/actors/${id}`],
+    queryFn: async () => {
+      return await actorAPI.getActors(+id).then((res: TActors) => res);
+    },
+  });
 
+  if (isPending) return <Loader />;
+
+  if (error) return "An error has occurred: " + error.message;
+  const availableScreenWidth = window.innerWidth;
   const responsive = {
     desktop: {
       breakpoint: { min: 0, max: 10000 },
@@ -18,7 +31,7 @@ export default function Actors() {
   };
   return (
     <Carousel responsive={responsive} infinite ssr arrows={false}>
-      {movie.actors.map((actor: TActor) => {
+      {data.cast.map((actor: TActor) => {
         return (
           <div key={actor.id} className={styles.actor}>
             <img

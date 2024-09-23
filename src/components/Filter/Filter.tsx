@@ -6,7 +6,7 @@ export default function Filter() {
   return (
     <div>
       <Popover>
-        <p>Фильтры</p>
+        <p>Фильтры: </p>
       </Popover>
     </div>
   );

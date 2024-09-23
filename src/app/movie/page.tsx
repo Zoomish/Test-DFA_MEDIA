@@ -8,6 +8,7 @@ import { useAppDispatch } from "@/redux/hooks";
 import MovieCardList from "@/components/MovieCardList/MovieCardList";
 import Loader from "@/components/Loader/Loader";
 import Slider from "@/components/Slider/Slider";
+import Filter from "@/components/Filter/Filter";
 
 export default function Movies() {
   const dispatch = useAppDispatch();
@@ -26,6 +27,7 @@ export default function Movies() {
   return (
     <div className={styles.container}>
       <Slider />
+      <Filter />
       <MovieCardList />
     </div>
   );

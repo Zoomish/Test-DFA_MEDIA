@@ -4,7 +4,7 @@ import { searchReducer } from "./seachSlice/searchSlice";
 
 export const makeStore = () => {
   return configureStore({
-    reducer: { movies: movieReducer, search: searchReducer },
+    reducer: { movies: movieReducer, search: searchReducer, filter: filterReducer },
   });
 };
 export type AppStore = ReturnType<typeof makeStore>;

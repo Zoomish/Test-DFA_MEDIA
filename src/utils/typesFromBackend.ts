@@ -28,7 +28,6 @@ export interface TMovieFull extends TMovieShort {
   spoken_languages: Array<number>;
   status: string;
   tagline: string;
-  actors: TActor[];
 }
 
 export interface TGenres {

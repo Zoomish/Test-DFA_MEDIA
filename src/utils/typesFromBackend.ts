@@ -41,6 +41,26 @@ export interface TCountry {
   name: string;
 }
 
+export interface TActors {
+  id: number;
+  cast: TActor[];
+  crew: TPerson[];
+}
+
+export interface TPerson {
+  adult: boolean;
+  gender: number;
+  id: number;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path: string;
+  credit_id: string;
+  department: string;
+  job: string;
+}
+
 export interface TActor {
   adult: boolean;
   gender: number;

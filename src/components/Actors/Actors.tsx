@@ -13,7 +13,7 @@ export default function Actors() {
   const router = usePathname().split("/");
   const id = router[router.length - 1];
   const { isPending, error, data } = useQuery<TActors>({
-    queryKey: [`actors/${id}`],
+    queryKey: [`movie/actors/${id}`],
     queryFn: async () => {
       return await actorAPI.getActors(+id).then((res: TActors) => res);
     },

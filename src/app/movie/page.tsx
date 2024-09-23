@@ -1,5 +1,5 @@
 "use client";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import * as movieAPI from "@/utils/api/movie-api";
 import styles from "./movies.module.scss";
 import { TMovieShort } from "@/utils/typesFromBackend";

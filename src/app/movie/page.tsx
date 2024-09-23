@@ -6,20 +6,14 @@ import { TMovieShort } from "@/utils/typesFromBackend";
 import { setMoviesState } from "@/redux/movieSlice/movieSlice";
 import { useAppDispatch } from "@/redux/hooks";
 import MovieCardList from "@/components/MovieCardList/MovieCardList";
-import { getFromCache } from "@/utils/helper";
 import Loader from "@/components/Loader/Loader";
 import Slider from "@/components/Slider/Slider";
 
 export default function Movies() {
-  const queryClient = useQueryClient();
   const dispatch = useAppDispatch();
   const { isPending, error } = useQuery({
     queryKey: ["movies"],
     queryFn: () => {
-      const cache = getFromCache(`movies`, queryClient);
-      if (cache) {
-        return cache;
-      }
       return movieAPI
         .getMovies()
         .then((res) => res.results)

@@ -20,7 +20,6 @@ export default function MovieCardList() {
         .then((res: TMovieShort[]) => dispatch(setFilteredMoviesState(res)));
     },
   });
-  if (error) return "An error has occurred: " + error.message;
   const unfilteredMovies = useAppSelector((state) => state.movies.movies);
   const filteredMovies = useAppSelector((state) => state.movies.filteredmovies)
 
@@ -28,6 +27,7 @@ export default function MovieCardList() {
     search !== ""
       ? filteredMovies
       : unfilteredMovies
+  if (error) return "An error has occurred: " + error.message;
   return (
     <div className={styles.container}>
       {movies.map((movie: TMovieShort) => (

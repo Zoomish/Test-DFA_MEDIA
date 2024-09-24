@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import styles from "./filter.module.scss";
-import { Button, Form, Input, Popover } from "antd";
+import { Button, Form, Input, Popover, Select } from "antd";
 import * as movieAPI from "@/utils/api/movie-api";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import {
@@ -58,6 +58,22 @@ export default function Filter() {
       </Form.Item>
       <Form.Item label="Год выпуска" name="release_year">
         <Input></Input>
+      </Form.Item>
+      <Form.Item label="Сортировка" name="sort_by">
+        <Select>
+          <Select.Option value="popularity.asc">По популярности</Select.Option>
+          <Select.Option value="popularity.desc">По убыванию</Select.Option>
+          <Select.Option value="vote_average.asc">По рейтингу</Select.Option>
+          <Select.Option value="vote_average.desc">
+            По убыванию рейтинга
+          </Select.Option>
+          <Select.Option value="release_date.asc">По дате</Select.Option>
+          <Select.Option value="release_date.desc">
+            По убыванию даты
+          </Select.Option>
+          <Select.Option value="title.asc">По названию</Select.Option>
+          <Select.Option value="title.desc">По убыванию названия</Select.Option>
+        </Select>
       </Form.Item>
       <Form.Item>
         <Button type="primary" htmlType="submit">

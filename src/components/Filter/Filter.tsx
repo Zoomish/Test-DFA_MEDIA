@@ -25,6 +25,7 @@ export default function Filter() {
     form.setFieldValue("release_year", filters.release_year);
     form.setFieldValue("genre", filters.genre);
     form.setFieldValue("vote_average", filters.vote_average);
+    form.setFieldValue("sort_by", filters.sort_by);
   }, []);
   const { error } = useQuery({
     queryKey: ["filteredMovies", filters],

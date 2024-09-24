@@ -5,28 +5,28 @@ import styles from "./movieCardList.module.scss";
 import * as movieAPI from "@/utils/api/movie-api";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
-import { setFilteredMoviesState } from "@/redux/movieSlice/movieSlice";
+import { setsearchedMoviesState } from "@/redux/movieSlice/movieSlice";
 
 export default function MovieCardList() {
   const dispatch = useAppDispatch();
   const search = useAppSelector((state) => state.search.search);
   const { error } = useQuery({
-    queryKey: ["filteredmovies", search],
+    queryKey: ["searchedMovies", search],
     enabled: !!search,
     queryFn: () => {
       return movieAPI
         .getSearchMovies(search)
         .then((res) => res.results)
-        .then((res: TMovieShort[]) => dispatch(setFilteredMoviesState(res)));
+        .then((res: TMovieShort[]) => dispatch(setsearchedMoviesState(res)));
     },
   });
-  const unfilteredMovies = useAppSelector((state) => state.movies.movies);
-  const filteredMovies = useAppSelector((state) => state.movies.filteredmovies)
+  const unsearchedMovies = useAppSelector((state) => state.movies.movies);
+  const searchedMovies = useAppSelector((state) => state.movies.searchedMovies)
 
   const movies =
     search !== ""
-      ? filteredMovies
-      : unfilteredMovies
+      ? searchedMovies
+      : unsearchedMovies
   if (error) return "An error has occurred: " + error.message;
   return (
     <div className={styles.container}>

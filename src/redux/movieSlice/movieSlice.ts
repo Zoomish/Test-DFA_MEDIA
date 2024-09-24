@@ -4,13 +4,13 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 export interface IMovieState {
   movie: TMovieFull;
   movies: TMovieShort[];
-  filteredmovies: TMovieShort[];
+  searchedMovies: TMovieShort[];
 }
 
 const initialState: IMovieState = {
   movie: {} as TMovieFull,
   movies: [],
-  filteredmovies: [],
+  searchedMovies: [],
 };
 
 export const movieSlice = createSlice({
@@ -23,13 +23,13 @@ export const movieSlice = createSlice({
     setMoviesState: (state, action: PayloadAction<Array<TMovieShort>>) => {
       state.movies = action.payload;
     },
-    setFilteredMoviesState: (state, action: PayloadAction<Array<TMovieShort>>) => {
-      state.filteredmovies = action.payload;
+    setsearchedMoviesState: (state, action: PayloadAction<Array<TMovieShort>>) => {
+      state.searchedMovies = action.payload;
     },
   },
 });
 
 export const { setMovieState } = movieSlice.actions;
 export const { setMoviesState } = movieSlice.actions;
-export const { setFilteredMoviesState } = movieSlice.actions;
+export const { setsearchedMoviesState } = movieSlice.actions;
 export const movieReducer = movieSlice.reducer;

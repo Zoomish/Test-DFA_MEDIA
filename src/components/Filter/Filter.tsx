@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import styles from "./filter.module.scss";
 import { Button, Form, Input, Popover } from "antd";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { IFilterState, setGenreState, setRatingState, setSortState, setYearState } from "@/redux/filterSlice/filterSlice";
 
 export default function Filter() {
   const [form] = Form.useForm();
@@ -14,8 +15,11 @@ export default function Filter() {
     form.setFieldValue("genre", filters.genre);
     form.setFieldValue("vote_average", filters.vote_average);
   }, []);
-  const onFinish = (values: any): void => {
-    console.log(values);
+  const onFinish = (values: IFilterState): void => {
+    dispatch(setYearState(values.release_year));
+    dispatch(setGenreState(values.genre));
+    dispatch(setSortState(values.sort_by));
+    dispatch(setRatingState(values.vote_average));
   };
   const content = (
     <Form form={form} onFinish={onFinish}>

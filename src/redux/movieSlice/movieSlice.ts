@@ -5,12 +5,14 @@ export interface IMovieState {
   movie: TMovieFull;
   movies: TMovieShort[];
   searchedMovies: TMovieShort[];
+  filteredMovies: TMovieShort[];
 }
 
 const initialState: IMovieState = {
   movie: {} as TMovieFull,
   movies: [],
   searchedMovies: [],
+  filteredMovies: [],
 };
 
 export const movieSlice = createSlice({
@@ -22,14 +24,28 @@ export const movieSlice = createSlice({
     },
     setMoviesState: (state, action: PayloadAction<Array<TMovieShort>>) => {
       state.movies = action.payload;
-    },
-    setsearchedMoviesState: (state, action: PayloadAction<Array<TMovieShort>>) => {
+      state.filteredMovies = action.payload;
       state.searchedMovies = action.payload;
+    },
+    setSearchedMoviesState: (
+      state,
+      action: PayloadAction<Array<TMovieShort>>
+    ) => {
+      state.searchedMovies = action.payload;
+    },
+    setFilteredMoviesState: (
+      state,
+      action: PayloadAction<Array<TMovieShort>>
+    ) => {
+      state.filteredMovies = action.payload;
     },
   },
 });
 
-export const { setMovieState } = movieSlice.actions;
-export const { setMoviesState } = movieSlice.actions;
-export const { setsearchedMoviesState } = movieSlice.actions;
+export const {
+  setMovieState,
+  setMoviesState,
+  setSearchedMoviesState,
+  setFilteredMoviesState,
+} = movieSlice.actions;
 export const movieReducer = movieSlice.reducer;

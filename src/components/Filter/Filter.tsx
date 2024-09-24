@@ -4,7 +4,14 @@ import { useEffect } from "react";
 import styles from "./filter.module.scss";
 import { Button, Form, Input, Popover } from "antd";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { IFilterState, setGenreState, setRatingState, setSortState, setYearState } from "@/redux/filterSlice/filterSlice";
+import {
+  IFilterState,
+  setGenreState,
+  setRatingState,
+  setSortState,
+  setYearState,
+} from "@/redux/filterSlice/filterSlice";
+import { setSearchState } from "@/redux/seachSlice/searchSlice";
 
 export default function Filter() {
   const [form] = Form.useForm();
@@ -20,6 +27,7 @@ export default function Filter() {
     dispatch(setGenreState(values.genre));
     dispatch(setSortState(values.sort_by));
     dispatch(setRatingState(values.vote_average));
+    dispatch(setSearchState(""));
   };
   const content = (
     <Form form={form} onFinish={onFinish}>
